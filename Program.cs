@@ -121,7 +121,6 @@ foreach (var carac in caracteres)
 }
 Console.WriteLine($"------------------------");
 
-
 // Ex 3
 List<string> nomes2 = new List<string> { "Ana", "Carlos", "Mariana", "João", "Lúcia" };
 
@@ -143,3 +142,20 @@ Console.WriteLine("\nApós remover o primeiro e adicioná-lo no fim:");
 Console.WriteLine(string.Join(", ", nomes2));
 
 Console.WriteLine($"\nA pessoa sorteada foi: {nomes[3]}");
+Console.WriteLine($"------------------------");
+
+// Ex 4
+List<string> produtosPrincipal = new List<string> { "Mouse", "Teclado", "Monitor", "Joystick"};  
+List<string> produtosSecundaria = new List<string> { "Headset", "Webcam", "Smartphone", "Mousepad" };  
+
+foreach (string produto in produtosSecundaria)
+{
+    produtosPrincipal.Add(produto);
+}
+
+Console.WriteLine("Lista consolidada:");
+foreach (string produto in produtosPrincipal)
+{
+    Console.WriteLine(produto);
+}
+Console.WriteLine($"------------------------");
