@@ -1,27 +1,27 @@
 ﻿// Arrays
-string[] funcionarios = {"João", "Maria", "Cláudia", "Oscar"};
+string[] funcionarios = { "João", "Maria", "Cláudia", "Oscar" };
 
 Console.WriteLine(funcionarios[1]);
 int indice = Array.IndexOf(funcionarios, "Oscar");
 Console.WriteLine($"Posição do Oscar: {indice}");
 
 Array.Sort(funcionarios);
-foreach(string nome in funcionarios) Console.WriteLine(nome);
+foreach (string nome in funcionarios) Console.WriteLine(nome);
 
 Console.WriteLine("--------");
 string[] novoArray = new string[5];
 Array.Copy(funcionarios, novoArray, funcionarios.Length);
-foreach(string nome in novoArray) Console.WriteLine(nome);
+foreach (string nome in novoArray) Console.WriteLine(nome);
 novoArray[4] = "Joana";
 
 Console.WriteLine("--------");
-foreach(string nome in novoArray) Console.WriteLine(nome);
+foreach (string nome in novoArray) Console.WriteLine(nome);
 
 // Ex 1
 Console.WriteLine("--------");
 Console.WriteLine($"Exercícios");
 Console.WriteLine($"------------------------");
-double[] doacoes = {103.54, 259.72, 82.16, 154.87, 364.45, 14.49 };  
+double[] doacoes = { 103.54, 259.72, 82.16, 154.87, 364.45, 14.49 };
 double soma = 0;
 foreach (double valor in doacoes)
 {
@@ -31,7 +31,7 @@ Console.WriteLine($"Total de doações: {soma}");
 Console.WriteLine($"------------------------");
 
 // Ex 2
-string[] nomes = { "Fernanda", "Eduardo", "Gustavo", "Carolina", "Alice", "Bruno", "Daniel" };  
+string[] nomes = { "Fernanda", "Eduardo", "Gustavo", "Carolina", "Alice", "Bruno", "Daniel" };
 nomes.Sort();
 Console.WriteLine($"O terceiro nome da lista após ordenação é: {nomes[2]}");
 Console.WriteLine($"------------------------");
@@ -56,7 +56,7 @@ Console.WriteLine($"Posição do Oscar: {indice2}");
 
 //listaFuncionarios.Sort();
 listaFuncionarios.Reverse();
-foreach(string nome in listaFuncionarios)
+foreach (string nome in listaFuncionarios)
 {
     Console.WriteLine(nome);
 }
@@ -65,7 +65,7 @@ Console.WriteLine("--------");
 listaFuncionarios.Add("Iasmin");
 listaFuncionarios.Remove("Oscar");
 
-foreach(string nome in listaFuncionarios)
+foreach (string nome in listaFuncionarios)
 {
     Console.WriteLine(nome);
 }
@@ -145,8 +145,8 @@ Console.WriteLine($"\nA pessoa sorteada foi: {nomes[3]}");
 Console.WriteLine($"------------------------");
 
 // Ex 4
-List<string> produtosPrincipal = new List<string> { "Mouse", "Teclado", "Monitor", "Joystick"};  
-List<string> produtosSecundaria = new List<string> { "Headset", "Webcam", "Smartphone", "Mousepad" };  
+List<string> produtosPrincipal = new List<string> { "Mouse", "Teclado", "Monitor", "Joystick" };
+List<string> produtosSecundaria = new List<string> { "Headset", "Webcam", "Smartphone", "Mousepad" };
 
 foreach (string produto in produtosSecundaria)
 {
@@ -159,3 +159,78 @@ foreach (string produto in produtosPrincipal)
     Console.WriteLine(produto);
 }
 Console.WriteLine($"------------------------");
+
+// Dicionários
+Dictionary<int, string> produtos = new Dictionary<int, string>
+        {
+            { 123, "Teclado"},
+            { 456, "Cadeira"},
+            { 789, "Notebook"},
+            { 321, "Teclado"},
+            { 654, "Mouse"},
+        };
+Console.WriteLine(produtos[456]);
+
+Dictionary<string, string> palavras = new Dictionary<string, string>
+        {
+            { "olá", "hello"},
+            { "mundo", "world"}
+        };
+Console.WriteLine($"A tradução de olá é {palavras["olá"]}");
+Console.WriteLine($"------------------------");
+
+// Ex 1
+Dictionary<string, decimal> notas = new Dictionary<string, decimal>();
+notas.Add("Ana", 8.75m);
+notas.Add("Bruno", 6.90m);
+notas.Add("Clara", 9.25m);
+
+foreach (var nota in notas)
+{
+    Console.WriteLine($"Aluno: {nota.Key} - Nota: {nota.Value}");
+}
+
+Console.WriteLine($"------------------------");
+
+// Ex 2
+Dictionary<int, string> inventario = new Dictionary<int, string>()
+        {
+            { 1, "Espada Longa" },
+            { 2, "Arco Curto" },
+            { 3, "Escudo de Ferro" }
+        };
+
+Console.WriteLine("Itens no inventário inicial:");
+foreach (var item in inventario)
+{
+    Console.WriteLine($"ID: {item.Key} - {item.Value}");
+}
+inventario.Remove(2);
+inventario.Add(4, "Poção de Vida");
+Console.WriteLine($"------------------------");
+Console.WriteLine("Itens no inventário atualizado:");
+foreach (var item in inventario)
+{
+    Console.WriteLine($"ID: {item.Key} - {item.Value}");
+}
+
+Console.WriteLine($"------------------------");
+
+// Ex 3
+Dictionary<string, string> tarefas = new Dictionary<string, string>()
+{
+{ "Refatorar módulo de login", "Ana" },
+{ "Testar API de pagamentos", "Pedro" }
+};
+
+tarefas.Clear();
+
+tarefas.Add("Implementar autenticação OAuth", "João");  
+tarefas.Add("Otimizar consultas SQL", "Maria");  
+tarefas.Add("Atualizar documentação", "Carlos");
+
+Console.WriteLine($"Tarefas do próximo sprint:");
+foreach (var tarefa in tarefas)
+{
+    Console.WriteLine($"- {tarefa.Key}: {tarefa.Value}");
+}
